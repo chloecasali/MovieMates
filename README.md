@@ -20,8 +20,10 @@ MovieMates aide à choisir un film sans passer la soirée à hésiter. L'applica
 
 Les films viennent de notre propre API, un fichier JSON publié avec GitHub Pages, gratuit et sans clé. Le prof a validé ce choix.
 
-- adresse : à compléter après la publication
-- 407 films, 19 genres, une affiche pour chaque film
+- films : https://kskerim.github.io/moviemates-api/api/movies.json
+- genres : https://kskerim.github.io/moviemates-api/api/genres.json
+- code de l'API : https://github.com/kskerim/moviemates-api
+- 401 films, 19 genres, une affiche pour chaque film
 - sources : [Sample APIs](https://sampleapis.com/api-list/movies) pour la liste des films et les affiches, [Wikidata](https://www.wikidata.org) pour les titres français, les années, les durées, les genres, les réalisateurs et les acteurs. Les affiches sont hébergées par IMDb.
 
 ## lancer le projet

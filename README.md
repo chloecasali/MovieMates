@@ -1,56 +1,54 @@
-# Welcome to your Expo app 👋
+# MovieMates
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+MovieMates aide à choisir un film sans passer la soirée à hésiter. L'application présente les films un par un avec leur affiche, et on garde ou on passe chacun d'un geste, comme sur une application de rencontre. On retrouve ensuite ses films aimés, classés par genre, avec leur fiche et un lien vers IMDb.
 
-## Get started
+## membres
 
-1. Install dependencies
+| prénom | nom         | compte GitHub                                 | partie                 |
+| ------ | ----------- | --------------------------------------------- | ---------------------- |
+| Chloé  | Casali      | [chloecasali](https://github.com/chloecasali) | B Navigation et compte |
+| Eva    | Cherbonnier | [cherbobs](https://github.com/cherbobs)       | A catalogue            |
+| Kerim  | Kasikci     | [kskerim](https://github.com/kskerim)         | C données partagées    |
 
-   ```bash
-   npm install
-   ```
+## les parties
 
-2. Start the app
+- **A · catalogue** : le modèle des films, le service de l'API, les hooks et l'écran du catalogue.
+- **B · navigation et compte** : les écrans, la navigation et le compte utilisateur.
+- **C · données partagées** : les données communes à plusieurs écrans, gérées avec un Context.
 
-   ```bash
-   npx expo start
-   ```
+## API
 
-In the output, you'll find options to open the app in a
+Les films viennent de notre propre API, un fichier JSON publié avec GitHub Pages, gratuit et sans clé. Le prof a validé ce choix.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- films : https://kskerim.github.io/moviemates-api/api/movies.json
+- genres : https://kskerim.github.io/moviemates-api/api/genres.json
+- code de l'API : https://github.com/kskerim/moviemates-api
+- 401 films, 19 genres, une affiche pour chaque film
+- sources : [Sample APIs](https://sampleapis.com/api-list/movies) pour la liste des films et les affiches, [Wikidata](https://www.wikidata.org) pour les titres français, les années, les durées, les genres, les réalisateurs et les acteurs. Les affiches sont hébergées par IMDb.
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## lancer le projet
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+Dans le terminal, `w` ouvre la version web sur http://localhost:8081. Sur téléphone, il faut scanner le QR code avec Expo Go, sur le même réseau Wi-Fi que l'ordinateur.
 
-### Other setup steps
+`npx tsc --noEmit` vérifie les types sans lancer l'application.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## organisation du code
 
-## Learn more
+Le code suit une architecture MVC.
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+src/
+├── app/          écrans (vue)
+├── components/   composants d'affichage (vue)
+├── hooks/        hooks contrôleurs
+├── context/      état partagé entre les écrans
+├── services/     accès aux données
+├── models/       types et règles
+└── data/         données locales
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```

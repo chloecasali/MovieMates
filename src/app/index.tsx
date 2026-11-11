@@ -6,7 +6,6 @@ import { MOCK_FILMS } from "../data/film";
 
 export default function Index() {
   const { filters, updateFilters, visibleFilms } = useFilmFilters(MOCK_FILMS);
-
   return (
     <View style={styles.container}>
       <FilmFiltersBar filters={filters} onChange={updateFilters} />

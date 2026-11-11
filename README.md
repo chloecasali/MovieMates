@@ -1,6 +1,6 @@
 # MovieMates
 
-MovieMates aide à choisir un film sans passer la soirée à hésiter. L'application présente les films un par un avec leur affiche, et on garde ou on passe chacun d'un geste, comme sur une application de rencontre. On retrouve ensuite ses films aimés, classés par genre, avec leur fiche et un lien vers IMDb.
+MovieMates aide un groupe d'amis à choisir un film ensemble. Chacun crée des playlists à partir du catalogue de films, puis les partage avec un code. Pour choisir, tout le monde swipe les films de la playlist, et l'application affiche le film aimé par tous.
 
 ## membres
 
@@ -12,9 +12,9 @@ MovieMates aide à choisir un film sans passer la soirée à hésiter. L'applica
 
 ## les parties
 
-- **A · catalogue** : le modèle des films, le service de l'API, les hooks et l'écran du catalogue.
-- **B · navigation et compte** : les écrans, la navigation et le compte utilisateur.
-- **C · données partagées** : les données communes à plusieurs écrans, gérées avec un Context.
+- **A · catalogue** : l'API des films, la recherche, les filtres, l'ajout aux playlists, la pile de cartes et l'onglet Match.
+- **B · navigation et compte** : Expo Router, l'écran détail, l'authentification, le profil, les invitations et le résultat du match.
+- **C · données partagées** : le thème, le Context, Firebase, les playlists, la logique du match, les règles de sécurité et les tests.
 
 ## API
 

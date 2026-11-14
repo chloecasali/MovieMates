@@ -1,4 +1,4 @@
-import { Duration } from "./time";
+import type { Duration } from "./time";
 
 export type Genre =
   | "drame"
@@ -19,18 +19,20 @@ export type Genre =
   | "policier"
   | "guerre"
   | "sportif"
-  | "familial";
+  | "familial"
+  | "autre";
 
 export type Film = {
   id: string;
-  title: string;
+  title: string; // titre français
+  originalTitle: string;
   description: string;
-  duration: Duration;
-  year: number;
-  genre: Genre;
-  casting: string[];
-  plateforme: string[];
-  coverUrl: string;
+  duration?: Duration;
+  year?: number;
+  genres: Genre[]; // au moins un, du plus précis au plus large
+  casting?: string[];
+  plateform?: string[];
+  coverUrl?: string;
 };
 
 export const GENRES: Genre[] = [
@@ -53,6 +55,7 @@ export const GENRES: Genre[] = [
   "guerre",
   "sportif",
   "familial",
+  "autre",
 ];
 
 export const GENRE_TYPE_LABELS: Record<Genre, string> = {
@@ -75,19 +78,43 @@ export const GENRE_TYPE_LABELS: Record<Genre, string> = {
   sportif: "Sportif",
   familial: "Familial",
   drame: "Drame",
+  autre: "Autre",
 };
+
 export type FilmFilters = {
   query: string;
   genre: Genre | null;
-  onlyAvailable: boolean;
+  // onlyAvailable: boolean; // en attente de données de plateformes dans l'API
 };
 
-// Règle métier : une fonction pure, sans React, facile à tester
+// "Amélie" → "amelie" : ignore les signe diacritique et les majuscules
+/* \p{Diacritic} veut dire « n’importe quel signe diacritique » : accent aigu, grave, circonflexe, tréma, cédille…
+g remplace tous les accents, pas seulement le premier.
+u active le mode Unicode, obligatoire pour que \p{…} fonctionne.
+"" remplace chaque accent par rien, autrement dit le supprime. */
+export function normalize(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+}
+
+export const INITIAL_FILTERS: FilmFilters = {
+  query: "",
+  genre: null,
+  // onlyAvailable: false,
+};
+
+// Renvoie true si le film correspond aux filtres, false sinon
 export function matchesFilters(film: Film, filters: FilmFilters): boolean {
-  const search = filters.query.trim().toLowerCase();
+  const search = normalize(filters.query.trim());
   const matchesQuery =
-    film.title.toLowerCase().includes(search) ||
-    film.description.toLowerCase().includes(search);
-  const matchesGenre = filters.genre === null || film.genre === filters.genre;
-  return matchesQuery && matchesGenre;
+    normalize(film.title).includes(search) ||
+    normalize(film.originalTitle).includes(search);
+  const matchesGenre =
+    filters.genre === null || film.genres.includes(filters.genre);
+  // disponible = au moins une plateforme connue (à réactiver avec onlyAvailable)
+  // const matchesAvailability =
+  //   !filters.onlyAvailable || (film.plateform?.length ?? 0) > 0;
+  return matchesQuery && matchesGenre; // && matchesAvailability
 }

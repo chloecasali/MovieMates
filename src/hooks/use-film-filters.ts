@@ -4,7 +4,7 @@ import { Film, FilmFilters, matchesFilters } from "@/models/film";
 
 const INITIAL_FILTERS: FilmFilters = {
   query: "",
-  onlyAvailable: false,
+  //onlyAvailable: false,
   genre: null,
 };
 

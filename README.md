@@ -18,13 +18,32 @@ MovieMates aide à choisir un film sans passer la soirée à hésiter. L'applica
 
 ## API
 
-Les films viennent de notre propre API, un fichier JSON publié avec GitHub Pages, gratuit et sans clé. Le prof a validé ce choix.
+API **MovieMates** : fichiers JSON statiques sur GitHub Pages, gratuits et sans clé.
+Source : https://github.com/kskerim/moviemates-api
 
-- films : https://kskerim.github.io/moviemates-api/api/movies.json
-- genres : https://kskerim.github.io/moviemates-api/api/genres.json
-- code de l'API : https://github.com/kskerim/moviemates-api
-- 401 films, 19 genres, une affiche pour chaque film
-- sources : [Sample APIs](https://sampleapis.com/api-list/movies) pour la liste des films et les affiches, [Wikidata](https://www.wikidata.org) pour les titres français, les années, les durées, les genres, les réalisateurs et les acteurs. Les affiches sont hébergées par IMDb.
+| Route                                                      | Contenu                                |
+| ---------------------------------------------------------- | -------------------------------------- |
+| `https://kskerim.github.io/moviemates-api/api/movies.json` | les 401 films                          |
+| `https://kskerim.github.io/moviemates-api/api/genres.json` | les 19 genres et leur libellé français |
+
+Recherche et détail : pour l'instant, l'app charge la liste une fois, puis filtre et cherche par `id` en local.
+Évolution prévue : reprendre la sémantique de TMDB v3 (discover, search, movie/{id}, genre/movie/list).
+
+### Champs utilisés
+
+| Champ               | Type                 | Remarque                               |
+| ------------------- | -------------------- | -------------------------------------- |
+| `id`                | texte                | identifiant IMDb (`tt0068646`), unique |
+| `title`             | texte                | titre français                         |
+| `original_title`    | texte                |                                        |
+| `year`              | nombre ou `null`     | null sur 2 films                       |
+| `runtime_minutes`   | nombre ou `null`     | null sur 2 films                       |
+| `genres`            | liste d'identifiants | au moins un, voir `genres.json`        |
+| `directors`, `cast` | listes de textes     | peuvent être vides                     |
+| `description`       | texte ou `null`      | une ligne, pas un vrai résumé          |
+| `poster_url`        | texte                | toujours présent (affiches IMDb)       |
+
+Pas de note dans les données : le filtre par note et `RatingBadge` attendront l'adaptation de l'API.
 
 ## lancer le projet
 

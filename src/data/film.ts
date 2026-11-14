@@ -4,6 +4,7 @@ export const MOCK_FILMS: Film[] = [
   {
     id: "film-001",
     title: "Inception",
+    originalTitle: "Inception",
     description:
       "Un voleur expérimenté s'infiltre dans le subconscient des gens pour y dérober des secrets ou y planter des idées.",
     duration: {
@@ -11,19 +12,20 @@ export const MOCK_FILMS: Film[] = [
       minutes: 28,
     },
     year: 2010,
-    genre: "science-fiction",
+    genres: ["science-fiction"],
     casting: [
       "Leonardo DiCaprio",
       "Joseph Gordon-Levitt",
       "Elliot Page",
       "Tom Hardy",
     ],
-    plateforme: ["Netflix", "Max"],
+    plateform: ["Netflix", "Max"],
     coverUrl:
       "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "film-002",
+    originalTitle: "La La Land",
     title: "La La Land",
     description:
       "À Los Angeles, une actrice aspirante et un musicien de jazz passionné tombent amoureux tout en poursuivant leurs rêves.",
@@ -32,15 +34,16 @@ export const MOCK_FILMS: Film[] = [
       minutes: 8,
     },
     year: 2016,
-    genre: "drame",
+    genres: ["drame"],
     casting: ["Ryan Gosling", "Emma Stone", "John Legend", "J.K. Simmons"],
-    plateforme: ["Prime Video", "Canal+"],
+    plateform: ["Prime Video", "Canal+"],
     coverUrl:
       "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "film-003",
     title: "Le Voyage de Chihiro",
+    originalTitle: "Sen to Chihiro no kamikakushi",
     description:
       "Une jeune fille se retrouve piégée dans un monde mystérieux peuplé d'esprits et doit trouver un moyen de sauver ses parents.",
     duration: {
@@ -48,15 +51,16 @@ export const MOCK_FILMS: Film[] = [
       minutes: 5,
     },
     year: 2001,
-    genre: "animation",
+    genres: ["animation"],
     casting: ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
-    plateforme: ["Netflix"],
+    plateform: ["Netflix"],
     coverUrl:
       "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "film-004",
     title: "Pulp Fiction",
+    originalTitle: "Pulp Fiction",
     description:
       "Les vies de deux tueurs à gages, d'un boxeur et de la femme d'un gangster s'entremêlent dans quatre histoires de violence et de rédemption.",
     duration: {
@@ -64,19 +68,20 @@ export const MOCK_FILMS: Film[] = [
       minutes: 34,
     },
     year: 1994,
-    genre: "thriller",
+    genres: ["thriller"],
     casting: [
       "John Travolta",
       "Samuel L. Jackson",
       "Uma Thurman",
       "Bruce Willis",
     ],
-    plateforme: ["Paramount+", "Apple TV"],
+    plateform: ["Paramount+", "Apple TV"],
     coverUrl:
       "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "film-005",
+    originalTitle: "Interstellar",
     title: "Interstellar",
     description:
       "Une équipe d'explorateurs voyage à travers un trou de ver pour assurer la survie de l'humanité.",
@@ -85,14 +90,14 @@ export const MOCK_FILMS: Film[] = [
       minutes: 49,
     },
     year: 2014,
-    genre: "science-fiction",
+    genres: ["science-fiction"],
     casting: [
       "Matthew McConaughey",
       "Anne Hathaway",
       "Jessica Chastain",
       "Michael Caine",
     ],
-    plateforme: ["Netflix", "Prime Video"],
+    plateform: ["Netflix", "Prime Video"],
     coverUrl:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
   },

@@ -7,7 +7,7 @@ const API_URL =
 const IMAGE_URL = "https://m.media-amazon.com/images/M";
 
 // forme d'un film dans la réponse de l'API, limitée aux champs utilisés
-type MovieResponse = {
+type FilmResponse = {
   id: number;
   title: string;
   original_title: string;
@@ -20,11 +20,11 @@ type MovieResponse = {
 type PageResponse = {
   page: number;
   total_pages: number;
-  results: MovieResponse[];
+  results: FilmResponse[];
 };
 
 // seul endroit qui connaît les noms de champs de l'API
-export function toFilm(m: MovieResponse): Film {
+export function toFilm(m: FilmResponse): Film {
   const year = Number(m.release_date.slice(0, 4));
   return {
     id: String(m.id),
@@ -39,7 +39,6 @@ export function toFilm(m: MovieResponse): Film {
 
 // une page de 20 films
 export async function fetchFilms(page = 1): Promise<Film[]> {
-  console.log("URL :", `${API_URL}/discover/movie/${page}.json`);
   const response = await fetch(`${API_URL}/discover/movie/${page}.json`);
   if (!response.ok)
     throw new Error(`Chargement des films impossible (${response.status})`);

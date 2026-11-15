@@ -1,4 +1,4 @@
-import { Film } from "@/models/film";
+import { type Film } from "@/models/film";
 
 export const MOCK_FILMS: Film[] = [
   {
@@ -19,7 +19,7 @@ export const MOCK_FILMS: Film[] = [
       "Elliot Page",
       "Tom Hardy",
     ],
-    plateform: ["Netflix", "Max"],
+    platforms: ["Netflix", "Max"],
     coverUrl:
       "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
   },
@@ -36,7 +36,7 @@ export const MOCK_FILMS: Film[] = [
     year: 2016,
     genres: ["drame"],
     casting: ["Ryan Gosling", "Emma Stone", "John Legend", "J.K. Simmons"],
-    plateform: ["Prime Video", "Canal+"],
+    platforms: ["Prime Video", "Canal+"],
     coverUrl:
       "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
   },
@@ -53,7 +53,7 @@ export const MOCK_FILMS: Film[] = [
     year: 2001,
     genres: ["animation"],
     casting: ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
-    plateform: ["Netflix"],
+    platforms: ["Netflix"],
     coverUrl:
       "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=800",
   },
@@ -75,7 +75,7 @@ export const MOCK_FILMS: Film[] = [
       "Uma Thurman",
       "Bruce Willis",
     ],
-    plateform: ["Paramount+", "Apple TV"],
+    platforms: ["Paramount+", "Apple TV"],
     coverUrl:
       "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
   },
@@ -97,7 +97,7 @@ export const MOCK_FILMS: Film[] = [
       "Jessica Chastain",
       "Michael Caine",
     ],
-    plateform: ["Netflix", "Prime Video"],
+    platforms: ["Netflix", "Prime Video"],
     coverUrl:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
   },

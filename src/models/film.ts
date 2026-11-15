@@ -31,7 +31,7 @@ export type Film = {
   year?: number;
   genres: Genre[]; // au moins un, du plus précis au plus large
   casting?: string[];
-  plateform?: string[];
+  platforms?: string[];
   coverUrl?: string;
 };
 

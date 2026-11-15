@@ -1,4 +1,4 @@
-import { type Film } from "@/models/film";
+import type { Film } from "@/models/film";
 
 export const MOCK_FILMS: Film[] = [
   {

@@ -24,16 +24,16 @@ type PageResponse = {
 };
 
 // seul endroit qui connaît les noms de champs de l'API
-export function toFilm(m: FilmResponse): Film {
-  const year = Number(m.release_date.slice(0, 4));
+export function toFilm(film: FilmResponse): Film {
+  const year = Number(film.release_date.slice(0, 4));
   return {
-    id: String(m.id),
-    title: m.title,
-    originalTitle: m.original_title,
-    description: m.overview,
-    genres: toGenres(m.genre_ids),
+    id: String(film.id),
+    title: film.title,
+    originalTitle: film.original_title,
+    description: film.overview,
+    genres: toGenres(film.genre_ids),
     ...(year ? { year } : {}),
-    ...(m.poster_path ? { coverUrl: `${IMAGE_URL}${m.poster_path}` } : {}),
+    ...(film.poster_path ? { coverUrl: `${IMAGE_URL}${film.poster_path}` } : {}),
   };
 }
 

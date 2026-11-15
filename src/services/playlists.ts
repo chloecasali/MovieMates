@@ -25,7 +25,9 @@ const copyPlaylist = (playlist: MockPlaylist): MockPlaylist => ({
 let store: MockPlaylist[] = MOCK_PLAYLISTS.map(copyPlaylist);
 
 // Renvoie les playlists accessibles à l'utilisateur
-export async function listPlaylists(userId = DEMO_USER_ID): Promise<Playlist[]> {
+export async function listPlaylists(
+  userId = DEMO_USER_ID,
+): Promise<Playlist[]> {
   await wait(SIMULATED_DELAY_MS);
   return store
     .filter((playlist) => playlist.memberIds.includes(userId))
@@ -83,7 +85,6 @@ export async function addFilm(
     { ...entry, addedAt: addedAt ?? new Date() },
   ];
 }
-
 
 // Retire un film de la playlist
 export async function removeFilm(

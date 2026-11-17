@@ -1,10 +1,11 @@
-import { MOCK_PLAYLISTS, type MockPlaylist } from "@/data/playlists";
+import {
+  DEMO_USER_ID,
+  MOCK_PLAYLISTS,
+  type MockPlaylist,
+} from "@/data/playlists";
 import type { Playlist, PlaylistEntry, Visibility } from "@/models/playlist";
 
 // TEMPORAIRE — Service mock en mémoire, à remplacer par Firestore.
-// TEMPORAIRE — Identifiant factice en attendant le branchement de l'authentification.
-const DEMO_USER_ID = "demo-user";
-
 // TEMPORAIRE — Délai artificiel pour rendre visibles les états de chargement.
 const SIMULATED_DELAY_MS = 300;
 
@@ -17,7 +18,10 @@ const wait = (ms: number) =>
 const copyPlaylist = (playlist: MockPlaylist): MockPlaylist => ({
   ...playlist,
   memberIds: [...playlist.memberIds],
-  entries: playlist.entries.map((entry) => ({ ...entry })),
+  entries: playlist.entries.map((entry) => ({
+    ...entry,
+    genres: [...entry.genres],
+  })),
 });
 
 // TEMPORAIRE — Copie les données de mock : les opérations peuvent modifier ce store
@@ -82,7 +86,7 @@ export async function addFilm(
   const { addedAt, ...entry } = input;
   playlist.entries = [
     ...playlist.entries,
-    { ...entry, addedAt: addedAt ?? new Date() },
+    { ...entry, genres: [...entry.genres], addedAt: addedAt ?? new Date() },
   ];
 }
 

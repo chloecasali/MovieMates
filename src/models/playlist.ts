@@ -16,9 +16,9 @@ export type Playlist = {
 export type PlaylistEntry = {
   filmId: string;
   title: string;
-  year: number;
-  genre: Genre;
-  posterUrl?: string;
+  year?: number;
+  genres: Genre[];
+  coverUrl?: string;
   addedBy: string;
   addedAt: Date;
 };

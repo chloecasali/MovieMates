@@ -19,13 +19,13 @@ export const colors = {
   muted: "#a39fae",
 
   // couleur principale : boutons, onglet actif, bouton j'aime
-  primary: "#ffb23f",
-  onPrimary: "#1a1206",
-  like: "#ffb23f",
+  primary: "#ff0054",
+  onPrimary: "#ffffff",
+  like: "#ff0054",
 
   // vert de « déjà dans une playlist » et « dispo »
   success: "#8fd3a8",
 
   // pastilles des membres d'une playlist
-  avatars: ["#ffb23f", "#9db7ff", "#8fd3a8", "#f2a7c3"],
+  avatars: ["#ffbf5e", "#9db7ff", "#8fd3a8", "#f2a7c3"],
 };

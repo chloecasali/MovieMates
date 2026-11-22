@@ -1,11 +1,13 @@
 // couleurs relevées sur la maquette figma (thème sombre)
 export const colors = {
+
   // fonds
   background: "#0f0e13",
   surface: "#1b1922",
   surfaceSelected: "#1e1a26",
   tabBar: "#15141a",
   overlay: "rgba(8, 7, 10, 0.55)",
+  transparent: "transparent",
 
   // bordures, de la plus discrète à la plus visible
   border: "#26232f",

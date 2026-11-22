@@ -37,6 +37,11 @@ Dans le terminal, `w` ouvre la version web sur http://localhost:8081. Sur télé
 
 `npx tsc --noEmit` vérifie les types sans lancer l'application.
 
+## Avant de push
+```
+make ci
+```
+
 ## organisation du code
 
 Le code suit une architecture MVC.

@@ -1,6 +1,5 @@
 // couleurs relevées sur la maquette figma (thème sombre)
 export const colors = {
-
   // fonds
   background: "#0f0e13",
   surface: "#1b1922",

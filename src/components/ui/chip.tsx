@@ -9,7 +9,12 @@ type ChipProps = {
   disabled?: boolean;
 };
 
-export function Chip({ label, selected, onPress, disabled = false }: ChipProps) {
+export function Chip({
+  label,
+  selected,
+  onPress,
+  disabled = false,
+}: ChipProps) {
   return (
     <Pressable
       accessibilityRole="button"

@@ -1,4 +1,4 @@
-import { ActivityIndicator, Pressable, StyleSheet, View } from "react-native";
+import { ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { AppText } from "@/components/ui/app-text";
 import { theme } from "@/theme";
 
@@ -23,6 +23,7 @@ export function Button({
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityLabel={label}
       accessibilityState={{ disabled: inactive, busy: loading }}
       disabled={inactive}
       onPress={onPress}
@@ -42,7 +43,6 @@ export function Button({
           {label}
         </AppText>
       )}
-      {loading ? <View accessibilityLabel={label} /> : null}
     </Pressable>
   );
 }

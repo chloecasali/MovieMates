@@ -6,6 +6,7 @@ export const colors = {
   surfaceSelected: "#1e1a26",
   tabBar: "#15141a",
   overlay: "rgba(8, 7, 10, 0.55)",
+  transparent: "transparent",
 
   // bordures, de la plus discrète à la plus visible
   border: "#26232f",

@@ -33,7 +33,9 @@ export function toFilm(film: FilmResponse): Film {
     description: film.overview,
     genres: toGenres(film.genre_ids),
     ...(year ? { year } : {}),
-    ...(film.poster_path ? { coverUrl: `${IMAGE_URL}${film.poster_path}` } : {}),
+    ...(film.poster_path
+      ? { coverUrl: `${IMAGE_URL}${film.poster_path}` }
+      : {}),
   };
 }
 

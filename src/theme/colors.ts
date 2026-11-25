@@ -29,4 +29,7 @@ export const colors = {
 
   // pastilles des membres d'une playlist
   avatars: ["#ffbf5e", "#9db7ff", "#8fd3a8", "#f2a7c3"],
+
+  // fonds des affiches de secours (film sans image)
+  posters: ["#5c4a2a", "#4a3b1f", "#2a3b4a", "#5c3b1f", "#2e2e38"],
 };

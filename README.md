@@ -45,6 +45,51 @@ Recherche et détail : pour l'instant, l'app charge la liste une fois, puis filt
 
 Pas de note dans les données : le filtre par note et `RatingBadge` attendront l'adaptation de l'API.
 
+## Firebase
+
+Connexion par e-mail et trois collections Firestore, une par partie.
+
+```
+users/{uid}                                 B · profil
+playlists/{playlistId}                      C · playlists
+playlists/{playlistId}/entries/{filmId}     A · films d'une playlist
+```
+
+Les dates sont rangées en nombre de millisecondes (`Date.now()`). Un champ facultatif est absent du document quand il est vide.
+
+### users/{uid}
+
+| Champ         | Type   | Remarque                   |
+| ------------- | ------ | -------------------------- |
+| `displayName` | texte  | nom affiché aux autres     |
+| `email`       | texte  |                            |
+| `createdAt`   | nombre | date de création du compte |
+
+### playlists/{playlistId}
+
+| Champ         | Type                  | Remarque                            |
+| ------------- | --------------------- | ----------------------------------- |
+| `name`        | texte                 |                                     |
+| `description` | texte, facultatif     |                                     |
+| `ownerId`     | texte                 | `uid` du créateur                   |
+| `memberIds`   | liste de textes       | `uid` des membres, créateur compris |
+| `visibility`  | `private` ou `shared` |                                     |
+| `inviteCode`  | texte, facultatif     | code pour rejoindre une playlist    |
+| `createdAt`   | nombre                |                                     |
+
+### playlists/{playlistId}/entries/{filmId}
+
+L'identifiant du document est celui du film. Le titre, l'année, les genres et l'affiche sont recopiés depuis l'API pour afficher la playlist sans la rappeler.
+
+| Champ      | Type               | Remarque                      |
+| ---------- | ------------------ | ----------------------------- |
+| `title`    | texte              |                               |
+| `year`     | nombre, facultatif |                               |
+| `genres`   | liste de textes    | genres de l'app               |
+| `coverUrl` | texte, facultatif  |                               |
+| `addedBy`  | texte              | `uid` de qui a ajouté le film |
+| `addedAt`  | nombre             |                               |
+
 ## lancer le projet
 
 ```

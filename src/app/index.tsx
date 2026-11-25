@@ -1,4 +1,3 @@
-import { Stack } from "expo-router";
 import {
   FlatList,
   StyleSheet,
@@ -35,13 +34,7 @@ function columnsFor(width: number): number {
 }
 
 const filmCount = (n: number) => `${n} film${n > 1 ? "s" : ""}`;
-console.log({
-  FilmCard,
-  FilmFiltersBar,
-  StatusMessage,
-  Screen,
-  StackScreen: Stack.Screen,
-});
+
 export default function Index() {
   // hooks en haut, avant tout retour anticipé
   const { state, reload } = useFilms();

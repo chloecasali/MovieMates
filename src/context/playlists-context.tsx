@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import type { Playlist, Visibility } from "@/models/playlist";
+import { Playlist, Visibility } from "@/models/playlist";
 import { createPlaylist, listPlaylists } from "@/services/playlists";
 
 // une seule forme possible à la fois : chargement, erreur ou liste
